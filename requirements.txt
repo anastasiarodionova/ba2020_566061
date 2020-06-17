@@ -1,5 +1,5 @@
 Django~=2.2.4
 argparse
 pyperclip
-PyCryptodome
+pyCryptodome
 pyinstaller

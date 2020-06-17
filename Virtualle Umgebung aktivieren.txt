@@ -1,3 +1,0 @@
-myvenv\Scripts\activate
-
-deactivate

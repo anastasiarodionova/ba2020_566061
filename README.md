@@ -1,5 +1,4 @@
 # SafeMyPass ist ein Password-Management System
-![GitHub](https://github.com/anastasiarodionova/djangogirls_566061.git)
 
 
 ## Features

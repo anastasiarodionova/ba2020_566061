@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Websites</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}"> {% endcomment %}
+</head>
+
+<body>
+    <div class="content container">
+        <div class="page-header">
+            <center>
+                <h1> Webites Index </h1>
+            </center>
+            <div class="pull-right">
+                {% if user.is_authenticated %}
+                Welcome, {{ user }}  <a href="{% url 'logout' %}" class="top-menu"> Logout </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"> Login </span></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

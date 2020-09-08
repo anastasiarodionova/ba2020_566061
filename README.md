@@ -1,7 +1,6 @@
-# SafeMyPass ist ein Password-Management System
+<img src="http://arodionova.pythonanywhere.com/static/Screenshot_12.png" width="200px" />
 
- <img src="http://arodionova.pythonanywhere.com/static/Screenshot_12.png" width="200px" />
-
+# Password-Management System
 
 ## Features
 - Passwörter werden in einer verschlüsselten SQLite-Datenbank gespeichert

@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as django_logout
 
 import base64
-# Create your views here.
+
 @login_required
 def index(request):
     websites = Website.objects.order_by('id')
@@ -16,10 +16,9 @@ def index(request):
     context = {
         'websites': websites,
     }
-    return HttpResponse(template.render(context, request)) #pass all the websites to index.html page
+    return HttpResponse(template.render(context, request))
 
 
-#this will be called to show the website create form
 @login_required
 def create(request):
     template = loader.get_template('create.html')
@@ -28,7 +27,6 @@ def create(request):
     }
     return HttpResponse(template.render(context, request))
 
-# Store the form data and then Redirects to Listing Page
 @login_required
 def store(request):
     f = WebsiteForm(request.POST)
@@ -38,39 +36,37 @@ def store(request):
     return redirect(reverse('index'))
 
 
-#this will be called to show the edit website form
 @login_required
 def edit(request, website_id):
-    #get website object 
+
     website = get_object_or_404(Website, pk=website_id)
     template = loader.get_template('edit.html')
     context = {
         'website' : website
     }
-    #load the website data in edit page view
+
     return HttpResponse(template.render(context, request))
 
 
-#Update an existing Website
 @login_required
 def update(request, website_id):
-    #get website object 
+
     website = get_object_or_404(Website, pk=website_id)
-    f = WebsiteForm(request.POST, instance=website) #Get the Website Object using the ID from url
-    f.save() #Save Form
+    f = WebsiteForm(request.POST, instance=website)
+    f.save()
     website.password = encrypt(website.password)
   #  website.password = decrypt(website.password)
     website.save()
-    return redirect(reverse('index')) #redirects to Listing Page
+    return redirect(reverse('index'))
 
 
-#Delete Website
+
 @login_required
 def delete(request, website_id):
-    #get website object 
+
     website = get_object_or_404(Website, pk=website_id)
     website.delete()
-    return redirect(reverse('index')) #redirects to Listing Page
+    return redirect(reverse('index'))
 
 
 def encrypt(txt):
@@ -80,4 +76,4 @@ def encrypt(txt):
 
 def logout(request):
     django_logout(request)
-    return redirect(reverse('login')) 
+    return redirect(reverse('login'))

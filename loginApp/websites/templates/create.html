@@ -11,17 +11,48 @@
     <input type="text" class="form-control" id="website" name="website">
   </div>
   <div class="form-group">
-    <label for="URL">URL:</label>
+    <label for="URL">Email/Username:</label>
     <input type="text" class="form-control" id="url" name="url">
   </div>
 
-   <div class="form-group">
-    <label for="Password">Password:</label>
-    <input type="password" class="form-control" id="password" name="password">
+ <div class="form-group">
+   <button type="button" onClick="generatePassword()" class="btn btn-primary"> Generate Random password </button>
   </div>
 
-  <button type="submit" class="btn btn-default">Save</button>
+
+
+   <div class="form-group">
+    <label for="Password">Password:</label>
+    <input type="text"  class="form-control" id="password" name="password">
+  </div>
+
+
+
+
+  <button type="submit"  class="btn btn-success pull-right">Save</button>
 
 </form>
 </div>
+
+<script>
+
+function generatePassword() {
+   var length = 12; //password length
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&%';
+   var charactersLength = characters.length;
+
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+
+   document.getElementById("password").value = result
+   return false
+}
+
+</script>
+
+
 {% endblock %}
+
+

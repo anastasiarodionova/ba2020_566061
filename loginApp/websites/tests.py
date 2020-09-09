@@ -6,7 +6,7 @@ from .models import Website
 
 class MyTestCase(TestCase):
     def setUp(self):
-        User.objects.create_user(username='testuser', password='testuserpassword') #create new test user
+        User.objects.create_user(username='testuser', password='testuserpassword')
         self.client.login(username='testuser', password='testuserpassword')
 
     def test_create_password(self):

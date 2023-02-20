@@ -1,5 +1,3 @@
-<img src="http://arodionova.pythonanywhere.com/static/Screenshot_12.png" width="200px" />
-
 # Password-Management System
 
 ## Features
